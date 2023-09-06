@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pulse Clock | Nuff</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/tyy3yob.css">
 </head>
-<body>
-    
-<!-- Container div, max-width, 6 sections -->
-<div class="container">
-    <div class="hero">
-        <h1>Pulse Clock</h1>
-        <p class="lead">An LED wall clock that lets you become time.</p>
-        <p class="lead">Made in Interface Lab and Exploratory Making at IMA Low Res, Summer 2023.</p>
-    </div>
-    <div class="video">
 
+<body>
+
+    <!-- Hero -->
+    <div class="hero center">
+        <div class="container">
+            <h1>Pulse Clock</h1>
+            <p class="lead">An LED wall clock that lets you become time.</p>
+            <p class="lead">Made in Interface Lab and Exploratory Making at IMA Low Res, Summer 2023.</p>
+        </div>
     </div>
+
+    <!-- Video -->
+    <div class="video center">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/rUJNcMlp7LM?si=ETK7JF_Mp6ef2dNm"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+    </div>
+
 
     <!--Clock Mode Left-->
-    <div>
-        <div>
+    <div class="columns">
+        <div class="description">
             <h2>Clock Mode</h2>
             <p>Pulls live time data from the cloud and displays the time in hours, minutes and seconds.</p>
         </div>
-        <div>
-            <img src="img/pulseclock_clockmode.gif" alt="Clock Mode">
+        <div class="description">
+            <img src="img/pulseclock_clockmode.gif" class="mograph" alt="Clock Mode">
         </div>
     </div>
 
     <!--Pulse Mode Right-->
-    <div>
-        <div>
-            <img src="img/pulseclock_pulsemode.gif" alt="Pulse Mode">
+    <div class="columns">
+        <div class="description">
+            <img src="img/pulseclock_pulsemode.gif" class="mograph" alt="Pulse Mode">
         </div>
-        <div>
+        <div class="description">
             <h2>Pulse Mode</h2>
             <p>Uses a heart rate sensor to create an animation from your heart rate.</p>
         </div>
     </div>
-</div>
 
     <!-- Horizontal Scroll Image Gallery-->
     <div class="scroll-container">
@@ -51,7 +60,6 @@
         <img src="img/pulseclock_5.jpg" alt="">
     </div>
 
-<div class="container">
     <!-- Specs -->
     <div>
         <h2>Components</h2>
@@ -68,7 +76,7 @@
         <p>by <a href="http://www.nuff.design">Nuff</a></p>
 
     </footer>
-</div>
 
 </body>
+
 </html>
