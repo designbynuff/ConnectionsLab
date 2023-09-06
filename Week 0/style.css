@@ -108,3 +108,14 @@ a:hover{
     color: #ce5c36;
     border-bottom: 1px dotted #ce5c36;
 }
+
+/* Horizontal Scroll Image Gallery */
+div.scroll-container {
+    overflow: auto;
+    white-space: nowrap;
+    padding: 10px;
+  }
+  
+  div.scroll-container img {
+    padding: 10px;
+  }
