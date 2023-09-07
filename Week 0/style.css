@@ -7,8 +7,13 @@ html,
 body {
     height: 100%;
     margin: 0;
-    background: #e0e0e6;
+    background: #bfd0fc;
     color: #1b1c21;
+}
+
+dark{
+    background: #1b1c21;
+    color: #bfd0fc;
 }
 
 h1 {
@@ -39,7 +44,7 @@ h3 {
 }
 
 .hero {
-    background: #0d2273;
+    background: #1b1c21;
     color: #fff;
     min-height: 80vh;
 }
@@ -90,8 +95,6 @@ h3 {
 }
 
 footer{
-    background: #000;
-    color: #fff;
     padding: 1rem 2rem;
 }
 
