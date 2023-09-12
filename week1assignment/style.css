@@ -1,0 +1,71 @@
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #FFF;
+}
+
+.hero {
+    background: url('img/JPG/hero_bg.jpg') no-repeat center center;
+    background-size: cover;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: #FFF;
+}
+
+
+.scroll-indicator {
+    border-radius: 40px;
+    border: 2px solid #FFF;
+    background: rgba(226, 163, 90, 0.16);
+
+    display: inline-flex;
+    padding: 8px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.referees {
+    background: #692121;
+    z-index: 10;
+}
+
+.logos {
+    background-color: #1B1C21;
+    z-index: 10;
+}
+
+.logo-spread {
+    display: inline-flex;
+    align-items: center;
+    gap: 192px;
+}
+
+.cta {
+    background: linear-gradient(180deg, rgba(5, 22, 4, 0.00) 19.27%, #76A575 100%);
+}
+
+.outline {
+    border-radius: 64px;
+    border: 2px solid #FFF;
+
+    display: inline-flex;
+    padding: 32px 48px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    color: #FFF;
+    font-family: Exo 2;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
