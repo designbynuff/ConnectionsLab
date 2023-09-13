@@ -7,10 +7,6 @@ body {
     color: #FFF;
 }
 
-
-/* font-family: 'Neuton', */
-serif;
-
 h1,
 h2,
 h3,
@@ -18,7 +14,43 @@ h4 {
     font-family: 'Neuton', serif;
     font-weight: 500;
     line-height: 1.2;
-    margin: 0;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.section {
+    padding: 96px 0;
+}
+
+.centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero {
@@ -33,6 +65,17 @@ h4 {
     color: #FFF;
 }
 
+.hero p {
+    font-family: Kozuka Mincho Pro;
+    font-size: 2.75rem;
+    text-align: center;
+}
+
+.logo-nudge {
+    position: relative;
+    left: 16px;
+}
+
 
 .scroll-indicator {
     border-radius: 40px;
@@ -40,11 +83,42 @@ h4 {
     background: rgba(226, 163, 90, 0.16);
 
     display: inline-flex;
-    padding: 8px;
+    padding: 2rem 1rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 8px;
+
+    position: absolute;
+    bottom: 0;
+}
+
+.rotatingbag {}
+
+.fixed-element {
+    position: fixed;
+    top: 280px;
+    left: 400px;
+}
+
+.shadow {
+    min-width: 2rem;
+    min-height: 1rem;
+    background-color: rgba(0, 0, 0, 0.35);
+    filter: blur(16px);
+    border-radius: 100%;
+    padding: 1rem 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30rem;
+    row-gap: 4rem;
+}
+
+.feature {
+    /* flex-wrap: wrap; */
 }
 
 .referees {
@@ -52,9 +126,25 @@ h4 {
     z-index: 10;
 }
 
+.referees ul {
+    list-style-image: url(img/SVG/icon_football_24x24.svg);
+}
+
+.referees li {
+    margin: 8px 0;
+}
+
 .logos {
     background-color: #1B1C21;
     z-index: 10;
+}
+
+.logos>h2 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 24px;
+    padding: 32px 0;
 }
 
 .logo-spread {
@@ -65,17 +155,18 @@ h4 {
 
 .cta {
     background: linear-gradient(180deg, rgba(5, 22, 4, 0.00) 19.27%, #76A575 100%);
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.outline {
+.btn-outline {
     border-radius: 64px;
+    background-color: transparent;
     border: 2px solid #FFF;
 
-    display: inline-flex;
     padding: 32px 48px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
 
     color: #FFF;
     font-family: Exo 2;
@@ -84,4 +175,56 @@ h4 {
     font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
+}
+
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+footer {
+    background-color: #BFD0FC;
+    padding: 24px 96px;
+    display: flex;
+    margin-left: auto;
+}
+
+/* Animation */
+body {
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.scroll-indicator::before {
+    animation: bounce 1s ease infinite;
+
+    color: #fff;
+    content: '↓';
+    font-size: 1rem;
+    height: 4rem;
+    left: 50%;
+    letter-spacing: -1px;
+    line-height: 4rem;
+    margin-left: -3rem;
+    opacity: 0.8;
+    position: absolute;
+    bottom: -0.75rem;
+    text-align: center;
+    width: 6rem;
+}
+
+@keyframes bounce {
+    25% {
+        transform: translateY(-25%);
+    }
 }
