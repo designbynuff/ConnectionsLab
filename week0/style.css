@@ -11,7 +11,7 @@ body {
     color: #1b1c21;
 }
 
-dark{
+dark {
     background: #1b1c21;
     color: #bfd0fc;
 }
@@ -62,11 +62,11 @@ h3 {
     margin: 0.25rem;
 }
 
-.video{
+.video {
     padding: 8rem 0;
 }
 
-.columns{
+.columns {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -76,15 +76,15 @@ h3 {
     padding: 8rem 2rem;
 }
 
-.description{
+.description {
     margin-right: 48px;
 }
 
-.mograph{
+.mograph {
     max-height: 192px;
 }
 
-.components{
+.components {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -94,7 +94,7 @@ h3 {
     padding: 8rem 2rem;
 }
 
-footer{
+footer {
     padding: 1rem 2rem;
 }
 
@@ -102,23 +102,34 @@ footer{
     margin: 0 2rem;
 }
 
-a{
+a {
     color: #f37950;
     text-decoration: none;
 }
 
-a:hover{
+a:hover {
     color: #ce5c36;
     border-bottom: 1px dotted #ce5c36;
 }
 
 /* Horizontal Scroll Image Gallery */
 div.scroll-container {
-    overflow: auto;
     white-space: nowrap;
-    padding: 10px;
-  }
-  
-  div.scroll-container img {
-    padding: 10px;
-  }
+    padding: 16px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+}
+
+div.scroll-container img {
+    padding: 16px;
+}
+
+/*
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 40%;
+    gap: 1rem;
+
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    */
