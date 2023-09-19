@@ -1,0 +1,36 @@
+html {
+    background-color: #1b1c21;
+    color: #bfd0fc;
+    font-family: 'pf-grand-gothik-variable', sans-serif;
+
+}
+
+.story {
+    font-variation-settings: "ital" 0, "wght" 600, "wdth" 130;
+    font-size: 8rem;
+    line-height: 1.1;
+    letter-spacing: -.2rem;
+}
+
+.subhead {
+    text-transform: uppercase;
+    font-variation-settings: "ital" 0, "wght" 300, "wdth" 180;
+    letter-spacing: .7rem;
+    line-height: 1.4;
+}
+
+.container {
+    padding: 9rem;
+
+}
+
+.edit {
+    font-variation-settings: "ital" 60, "wght" 600, "wdth" 130;
+    padding: 8px 4px;
+    background-color: #6df8e5;
+    color: #1b1c21;
+}
+
+#one:hover #two:hover #three:hover #four:hover {
+    border-bottom: 1px dotted #6df8e5;
+}
