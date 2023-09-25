@@ -1,0 +1,3 @@
+So I didn't do the suggested 2-sentence story thing, although I guess this *is* a story and (spoiler) two sentences.
+Wanted to try a "click on the thing you need to change in order to change it" kind of interaction, using the click event listener. I also have hints on hover using CSS. 
+One last thing I'd like to do (but didn't have time for) is an "enable hints" slider that would toggle the hover effect on and off. Looked up some HTML/CSS toggle switches (https://www.w3schools.com/howto/howto_css_switch.asp) (https://alvarotrigo.com/blog/toggle-switch-css/) but need to figure out the JS to add/remove hover class from the span elements.
