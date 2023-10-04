@@ -5,11 +5,8 @@ window.addEventListener('load', () => {
     console.log("Page has loaded");
 
     // Listen for submit button and get date from picker
-
-    //Send a request for data
-
+    // Send a request for data
     // Return Holidays Matching Date
-
     // Display Holidays Matching Date
 
     // Get references to the input field and the right-side result container
@@ -27,7 +24,10 @@ window.addEventListener('load', () => {
 
     async function getHolidays(selectedDate) {
         try {
-            const response = await fetch(`https://api.checkiday.com/${selectedDate}`);
+            // Replace 'YOUR_API_KEY' with your actual API key
+            const apiKey = 'NmQorsGunt94zwrs80ev7hDBDfsMX2kd';
+
+            const response = await fetch(`https://api.checkiday.com/${selectedDate}?api_key=${apiKey}`);
             const data = await response.json();
 
             // Call a function to display the holidays
@@ -36,6 +36,7 @@ window.addEventListener('load', () => {
             console.error("Error fetching data:", error);
         }
     }
+
     function displayHolidays(data) {
         // Clear previous results
         resultContainer.innerHTML = "";
