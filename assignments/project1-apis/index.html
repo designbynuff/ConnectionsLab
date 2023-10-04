@@ -3,31 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Check Yourself Before You Met Yourself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holidays on your Birthday</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <!-- Google Fonts -->
 </head>
 
 <body>
-    <section class="main container">
-        <div class="search">
-            <h1>Are You In the Met?</h1>
-            <form id="search-form">
-                <!-- <label for="name">Enter Your Name:</label> -->
-                <input type="text" id="name" required>
-                <button type="submit">Search</button>
-            </form>
+    <!-- Divide into Left and Right Sides, on the Left we'll have a date picker, on the right we'll display results -->
+    <section class="container">
+        <div id="left">
+            <div class="calendar">
+                <div class="calendar-top">
+                    <h1>What's on your birthday</h1>
+                </div>
+                <div class="picker">
+                    <input type="date" name="birthday" id="birthday">
+                </div>
+                <div class="submit">
+                    <input id="submit-date" type="submit" value="Submit">
+                </div>
+            </div>
         </div>
-
-        <div id="results"></div>
+        <div id="right">
+        </div>
     </section>
-
-    <footer>
-        <p>By <a href="http://lowres.designbynuff.com">Nuff</a> at IMA Low Res.</p>
-    </footer>
-
 
     <script src="script.js"></script>
 </body>

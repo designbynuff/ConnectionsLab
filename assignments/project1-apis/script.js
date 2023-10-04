@@ -1,46 +1,57 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('search-form');
-    const resultsDiv = document.getElementById('results');
+console.log("Page is loading");
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('name').value;
+//Make sure the page has loaded
+window.addEventListener('load', () => {
+    console.log("Page has loaded");
 
-        // Call the function to fetch data from the API
-        searchArtworksByName(name);
+    // Listen for submit button and get date from picker
+
+    //Send a request for data
+
+    // Return Holidays Matching Date
+
+    // Display Holidays Matching Date
+
+    // Get references to the input field and the right-side result container
+    const birthdayInput = document.getElementById("birthday");
+    const resultContainer = document.getElementById("right");
+    const submitButton = document.getElementById("submit-date");
+
+    submitButton.addEventListener("click", () => {
+        // Get the selected date from the input field
+        const selectedDate = birthdayInput.value;
+
+        // Call the function to retrieve and display holidays
+        getHolidays(selectedDate);
     });
 
-    async function searchArtworksByName(name) {
-        // Construct the API URL with your API key
-        // const apiKey = 'YOUR_API_KEY';
-        // const apiUrl = `https://collectionapi.metmuseum.org/public/collection/v1/search?q=${name}`;
-
+    async function getHolidays(selectedDate) {
         try {
-            const response = await fetch(apiUrl);
+            const response = await fetch(`https://api.checkiday.com/${selectedDate}`);
             const data = await response.json();
 
-            // Check if the API returned results
-            if (data.objectIDs.length === 0) {
-                resultsDiv.innerHTML = 'No results found.';
-                return;
-            }
-
-            // Display the results
-            const objectID = data.objectIDs[0];
-            const artworkUrl = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`;
-            const artworkResponse = await fetch(artworkUrl);
-            const artworkData = await artworkResponse.json();
-
-            resultsDiv.innerHTML = `
-                <h2>Artwork Title: ${artworkData.title}</h2>
-                <p>Artist: ${artworkData.artistDisplayName}</p>
-                <p>Medium: ${artworkData.medium}</p>
-                <p>Date: ${artworkData.objectDate}</p>
-                <img src="${artworkData.primaryImage}" alt="${artworkData.title}">
-            `;
+            // Call a function to display the holidays
+            displayHolidays(data);
         } catch (error) {
-            console.error('Error fetching data:', error);
-            resultsDiv.innerHTML = 'An error occurred while fetching data.';
+            console.error("Error fetching data:", error);
         }
     }
-});
+    function displayHolidays(data) {
+        // Clear previous results
+        resultContainer.innerHTML = "";
+
+        if (data.holidays.length === 0) {
+            resultContainer.textContent = "No holidays found for this date.";
+            return;
+        }
+
+        const list = document.createElement("ul");
+
+        data.holidays.forEach((holiday) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = holiday.name;
+            list.appendChild(listItem);
+        });
+
+        resultContainer.appendChild(list);
+    }
