@@ -10,13 +10,13 @@ window.addEventListener('load', () => {
     // Display Holidays Matching Date
 
     // Get references to the input field and the right-side result container
-    const birthdayInput = document.getElementById("birthday");
-    const resultContainer = document.getElementById("right");
-    const submitButton = document.getElementById("submit-date");
+    let birthdayInput = document.getElementById("birthday");
+    let resultContainer = document.getElementById("right");
+    let submitButton = document.getElementById("submit-date");
 
     submitButton.addEventListener("click", () => {
         // Get the selected date from the input field
-        const selectedDate = birthdayInput.value;
+        let selectedDate = birthdayInput.value;
 
         // Call the function to retrieve and display holidays
         getHolidays(selectedDate);
@@ -24,11 +24,10 @@ window.addEventListener('load', () => {
 
     async function getHolidays(selectedDate) {
         try {
-            // Replace 'YOUR_API_KEY' with your actual API key
             const apiKey = 'NmQorsGunt94zwrs80ev7hDBDfsMX2kd';
 
-            const response = await fetch(`https://api.checkiday.com/${selectedDate}?api_key=${apiKey}`);
-            const data = await response.json();
+            let response = await fetch(`https://api.checkiday.com/${selectedDate}?api_key=${apiKey}`);
+            let data = await response.json();
 
             // Call a function to display the holidays
             displayHolidays(data);
