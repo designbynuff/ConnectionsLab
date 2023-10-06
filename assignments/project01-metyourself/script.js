@@ -12,27 +12,6 @@ window.addEventListener('load', () => {
 
         objectID = getObjectID();
         console.log(objectID);
-
-
-
-
-
-        // Fetch all Object IDs that match the Name
-        // Next steps: Prioritise isHighlight, then isOnView
-
-        // fetch("https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=searchName")
-        //     .then(response => {
-        //         return response.json();
-        //     })
-        //     .then(data => {
-        //         console.log(data);
-        //     })
-
-        // Prioritised search
-
-
-
-        // }
     });
 
 });
