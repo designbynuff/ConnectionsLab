@@ -4,6 +4,12 @@ body {
     font-family: 'span', serif;
 }
 
+bg-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+}
+
 .main {
     margin: 5rem auto;
     min-height: 90vh;
@@ -31,7 +37,7 @@ body {
     margin-bottom: 2rem;
 } */
 
-form {
+.search {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,8 +61,7 @@ button {
     border: none;
     background-color: #BFD0FC;
     color: #1b1c21;
-    padding: 8px 16px;
-    ;
+    padding: .5rem 1.5rem;
     font-size: 2rem;
     font-family: 'span', serif;
 }
@@ -64,3 +69,32 @@ button {
 button:hover {
     background-color: #cddbff;
 }
+
+btn-outline {
+    border-radius: 32px;
+    border: 1px solid #BFD0FC;
+    background-color: transparent;
+    color: #BFD0FC;
+    padding: .5rem 1.5rem;
+    font-size: 2rem;
+    font-family: 'span', serif;
+}
+
+/* Image Metadata */
+.artwork-info {
+    background: #1B1C21;
+    padding: 2rem;
+    max-width: 360px;
+}
+
+.title {}
+
+.artist-info {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.didactic {}
+
+.viewing-info {}
