@@ -51,7 +51,7 @@ input[type="text"] {
 }
 
 /* Search Button */
-button {
+.button {
     border-radius: 32px;
     border: none;
     background-color: #BFD0FC;
@@ -61,7 +61,7 @@ button {
     font-family: 'span', serif;
 }
 
-button:hover {
+.button:hover {
     background-color: #cddbff;
 }
 

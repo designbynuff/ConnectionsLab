@@ -1,4 +1,4 @@
-let searchButton = document.getElementById('search-button');
+let searchForm = document.getElementById('search-form');
 let searchName;
 let objectID;
 
@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
     console.log('Page is loaded');
 
     // When button pressed, make searchName the input value of the field
-    searchButton.addEventListener('click', () => {
+    searchForm.addEventListener('submit', () => {
         searchName = document.getElementById('search-name').value;
         console.log(searchName);
 
