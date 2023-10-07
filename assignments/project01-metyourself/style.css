@@ -4,11 +4,6 @@ body {
     font-family: 'span', serif;
 }
 
-bg-image {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top center;
-}
 
 .main {
     margin: 5rem auto;
@@ -70,7 +65,41 @@ button:hover {
     background-color: #cddbff;
 }
 
-btn-outline {
+
+
+/* Artwork Metadata */
+
+#results {
+    min-height: 90vh;
+}
+
+.artwork-info {
+    background: #1B1C21;
+    padding: 2rem;
+    max-width: 360px;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.artist-info {
+    margin-bottom: 1rem;
+}
+
+.artist-info h2 {
+    font-weight: 500;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.didactic {
+    margin-bottom: 3rem;
+}
+
+.btn-outline {
     border-radius: 32px;
     border: 1px solid #BFD0FC;
     background-color: transparent;
@@ -78,23 +107,14 @@ btn-outline {
     padding: .5rem 1.5rem;
     font-size: 2rem;
     font-family: 'span', serif;
-}
-
-/* Image Metadata */
-.artwork-info {
-    background: #1B1C21;
-    padding: 2rem;
-    max-width: 360px;
-}
-
-.title {}
-
-.artist-info {
-    font-size: 2.5rem;
-    font-weight: 700;
+    display: inline-block;
     margin-bottom: 1rem;
+    text-decoration: none;
 }
-
-.didactic {}
 
 .viewing-info {}
+
+#bg-image {
+    background-size: cover;
+    background-position: top center;
+}
