@@ -38,6 +38,10 @@ async function getObjectID(searchName) {
     const data = await searchArtworks(true, true, true, true);
     if (data) return data;
 
+    // HIghlights and nothing else
+    const data1b = await searchArtworks(true);
+    if (data1b) return data1b;
+
     // Fetch all objects with isHighlight = false, isOnView = true, hasImages = true, title = true and searchName
     const data2 = await searchArtworks(false, true, true, true);
     if (data2) return data2;
@@ -67,7 +71,7 @@ async function getObjectID(searchName) {
     if (data8) return data8;
 
     // Nothing but still a match?
-    const data9 = await searchArtworks(false, false, false, false, false);
+    const data9 = await searchArtworks();
     if (data9) return data9;
 
 
@@ -121,9 +125,6 @@ async function searchArtworks(isHighlight, isOnView, hasImages, title, tags) {
                 return null;
             }
 
-            // check if any object IDs
-            // if no object ids return null
-            // if object ids, fetch full object data for id and return it
         })
 }
 

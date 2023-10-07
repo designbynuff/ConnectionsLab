@@ -112,9 +112,9 @@ button:hover {
     text-decoration: none;
 }
 
-.viewing-info {}
+/* .viewing-info {} */
 
 #bg-image {
-    background-size: cover;
+    background-size: width 100vw;
     background-position: top center;
 }
