@@ -31,66 +31,38 @@ window.addEventListener('load', () => {
 
 });
 
-// Function to get an array of object IDs in order of priority
+// Rewriting this function to search for title, then artist, then tags, always with images
 async function getObjectID(searchName) {
 
-    // Fetch all objects with isHighlight = true, isOnView = true, hasImages = true, title = true and searchName
-    // const data = await searchArtworks(true, true, true, true);
-    // if (data) return data;
+    // Order is hasImages, title, artistOrCulture, tags
 
-    // // HIghlights and nothing else
-    // const data1b = await searchArtworks(true);
-    // if (data1b) return data1b;
+    // Fetch all objects matching title
+    const data = await searchArtworks(true, true, false, false);
+    if (data) return data;
 
-    // Fetch all objects with  isOnView = true, hasImages = true, title = true and searchName
-    const data2 = await searchArtworks(true, true, true, false);
+    // Fetch all objects matching artist
+    const data2 = await searchArtworks(true, false, true, false);
     if (data2) return data2;
 
-    // Fetch all objects with isOnView = false, hasImages = true, title = true and searchName
-    const data3 = await searchArtworks(false, true, true, false);
+    // Fetch all objects matching tags
+    const data3 = await searchArtworks(true, false, false, true);
     if (data3) return data3;
 
-    // Introduce tags if nothing matches title
-    const data4 = await searchArtworks(true, true, false, true);
+    // Only use query
+    const data4 = await searchArtworks(true, false, false, false);
     if (data4) return data4;
 
-    // // Tags but no highlight
-    // const data5 = await searchArtworks(false, true, true, false, true);
-    // if (data5) return data5;
-
-    // Tags but no highlight or on view
-    const data6 = await searchArtworks(false, true, false, true);
-    if (data6) return data6;
-
-    // Title but no image
-    const data7 = await searchArtworks(false, false, true);
-    if (data7) return data7;
-
-    // Only tags
-    const data8 = await searchArtworks(false, false, false, true);
-    if (data8) return data8;
-
-    // Nothing but still a match?
-    const data9 = await searchArtworks(false, false, false, false);
-    if (data9) return data9;
-
-
+    // If no objects found, return null
     return null;
 }
 
-async function searchArtworks(isOnView, hasImages, title, artistOrCulture, tags) {
+// Dropping isHighlight for now, produces limited results
+// Also dropping isOnView because I can't get that data for the individual object
+async function searchArtworks(hasImages, title, artistOrCulture, tags) {
     const url = new URL('https://collectionapi.metmuseum.org/public/collection/v1/search?');
-
-    // if (isHighlight) {
-    //     url.searchParams.append('isHighlight', 'true')
-    // }
 
     if (hasImages) {
         url.searchParams.append('hasImages', 'true')
-    }
-
-    if (isOnView) {
-        url.searchParams.append('isOnView', 'true')
     }
 
     if (title) {
@@ -129,8 +101,10 @@ async function searchArtworks(isOnView, hasImages, title, artistOrCulture, tags)
                 displayNoMatchMessage(searchName);
                 return null;
             }
-
         })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 }
 
 // Function to get metadata from object ID
@@ -228,9 +202,15 @@ function displayNoMatchMessage(searchName) {
     let noMatchMessage = document.createElement('div');
     noMatchMessage.setAttribute('class', 'artwork-info');
 
+    // Create an h1 element for the title
+    let title = document.createElement('h1');
+    title.setAttribute('class', 'title')
+    title.innerHTML = `I'm afraid ${searchName} is not in the Met... yet.`;
+    noMatchMessage.appendChild(title); // Append the title to the noMatchMessage div
+
     // Create a message element
     let message = document.createElement('p');
-    message.innerHTML = `I'm afraid ${searchName} is not in the Met... yet. Maybe it'll be you? We're waiting patiently for your masterpiece.`;
+    message.innerHTML = `Maybe it'll be you? We're waiting patiently for your masterpiece.`;
     noMatchMessage.appendChild(message); // Append the message to the noMatchMessage div
 
     //create button to refresh page
