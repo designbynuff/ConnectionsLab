@@ -126,6 +126,7 @@ async function searchArtworks(isOnView, hasImages, title, artistOrCulture, tags)
 
             // if array length = 0, return null
             if (data.objectIDs.length === 0) {
+                displayNoMatchMessage(searchName);
                 return null;
             }
 
@@ -230,8 +231,14 @@ function displayNoMatchMessage(searchName) {
     // Create a message element
     let message = document.createElement('p');
     message.innerHTML = `I'm afraid ${searchName} is not in the Met... yet. Maybe it'll be you? We're waiting patiently for your masterpiece.`;
-
     noMatchMessage.appendChild(message); // Append the message to the noMatchMessage div
+
+    //create button to refresh page
+    let refresh = document.createElement('button');
+    refresh.setAttribute('class', 'button');
+    refresh.setAttribute('onclick', 'refresh()');
+    refresh.innerHTML = '← Start Again'; // Set the button text
+    noMatchMessage.appendChild(refresh); // Append refresh to artworkInfo div
 
     // Append the noMatchMessage div to the 'results' section
     let resultsSection = document.getElementById('results');
