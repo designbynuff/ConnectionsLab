@@ -35,55 +35,55 @@ window.addEventListener('load', () => {
 async function getObjectID(searchName) {
 
     // Fetch all objects with isHighlight = true, isOnView = true, hasImages = true, title = true and searchName
-    const data = await searchArtworks(true, true, true, true);
-    if (data) return data;
+    // const data = await searchArtworks(true, true, true, true);
+    // if (data) return data;
 
-    // HIghlights and nothing else
-    const data1b = await searchArtworks(true);
-    if (data1b) return data1b;
+    // // HIghlights and nothing else
+    // const data1b = await searchArtworks(true);
+    // if (data1b) return data1b;
 
-    // Fetch all objects with isHighlight = false, isOnView = true, hasImages = true, title = true and searchName
-    const data2 = await searchArtworks(false, true, true, true);
+    // Fetch all objects with  isOnView = true, hasImages = true, title = true and searchName
+    const data2 = await searchArtworks(true, true, true, false);
     if (data2) return data2;
 
-    // Fetch all objects with isHighlight = false, isOnView = false, hasImages = true, title = true and searchName
-    const data3 = await searchArtworks(false, false, true, true);
+    // Fetch all objects with isOnView = false, hasImages = true, title = true and searchName
+    const data3 = await searchArtworks(false, true, true, false);
     if (data3) return data3;
 
     // Introduce tags if nothing matches title
-    const data4 = await searchArtworks(true, true, true, false, true);
+    const data4 = await searchArtworks(true, true, false, true);
     if (data4) return data4;
 
-    // Tags but no highlight
-    const data5 = await searchArtworks(false, true, true, false, true);
-    if (data5) return data5;
+    // // Tags but no highlight
+    // const data5 = await searchArtworks(false, true, true, false, true);
+    // if (data5) return data5;
 
     // Tags but no highlight or on view
-    const data6 = await searchArtworks(false, false, true, false, true);
+    const data6 = await searchArtworks(false, true, false, true);
     if (data6) return data6;
 
     // Title but no image
-    const data7 = await searchArtworks(false, false, false, true);
+    const data7 = await searchArtworks(false, false, true);
     if (data7) return data7;
 
     // Only tags
-    const data8 = await searchArtworks(false, false, false, false, true);
+    const data8 = await searchArtworks(false, false, false, true);
     if (data8) return data8;
 
     // Nothing but still a match?
-    const data9 = await searchArtworks();
+    const data9 = await searchArtworks(false, false, false, false);
     if (data9) return data9;
 
 
-    // return null;
+    return null;
 }
 
-async function searchArtworks(isHighlight, isOnView, hasImages, title, tags) {
+async function searchArtworks(isOnView, hasImages, title, artistOrCulture, tags) {
     const url = new URL('https://collectionapi.metmuseum.org/public/collection/v1/search?');
 
-    if (isHighlight) {
-        url.searchParams.append('isHighlight', 'true')
-    }
+    // if (isHighlight) {
+    //     url.searchParams.append('isHighlight', 'true')
+    // }
 
     if (hasImages) {
         url.searchParams.append('hasImages', 'true')
@@ -95,6 +95,10 @@ async function searchArtworks(isHighlight, isOnView, hasImages, title, tags) {
 
     if (title) {
         url.searchParams.append('title', 'true')
+    }
+
+    if (artistOrCulture) {
+        url.searchParams.append('artistOrCulture', 'true')
     }
 
     if (tags) {
@@ -221,7 +225,7 @@ function refresh() {
 function displayNoMatchMessage(searchName) {
     // Create a new Div for the message
     let noMatchMessage = document.createElement('div');
-    noMatchMessage.setAttribute('class', 'no-match-message');
+    noMatchMessage.setAttribute('class', 'artwork-info');
 
     // Create a message element
     let message = document.createElement('p');
