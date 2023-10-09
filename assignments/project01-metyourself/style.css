@@ -79,9 +79,9 @@ button:hover {
     z-index: 0;
 }
 
-#results {
+/* #results {
     min-height: 90vh;
-}
+} */
 
 .artwork-info {
     background: #1B1C21;
@@ -124,6 +124,11 @@ button:hover {
     text-decoration: none;
 }
 
-/* .viewing-info {} */
+/* Canvas Absolute Position (already declared in JS but not working) */
+/* .p5Canvas {
+    position: fixed;
+}
 
-/* No Results Message */
+#defaultCanvas0 {
+    position: fixed;
+} */

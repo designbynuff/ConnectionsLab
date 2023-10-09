@@ -3,7 +3,7 @@ let canvas;
 function setup() {
   // Make a fullscreen bg canvas
   canvas = createCanvas(windowWidth, windowHeight);
-  canvas.position(0, 0);
+  canvas.position(0, 0, 'fixed');
   canvas.style("z-index", "-1");
 
   background(27, 28, 33);

@@ -180,6 +180,9 @@ async function getObjectInfo(objectID) {
             let resultsSection = document.getElementById('results');
             resultsSection.appendChild(artworkInfo);
 
+            // Set #results to min-height 90vh
+            resultsSection.style.minHeight = '90vh';
+
 
             // Remove the search elements
             removeSearch();
