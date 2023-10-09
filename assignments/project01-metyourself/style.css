@@ -115,7 +115,7 @@ button:hover {
 /* .viewing-info {} */
 
 #bg-image {
-    background-size: width 100vw;
+    background-size: cover;
     background-position: top center;
 }
 

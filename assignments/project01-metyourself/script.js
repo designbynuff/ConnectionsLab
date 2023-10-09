@@ -32,19 +32,20 @@ window.addEventListener('load', () => {
 });
 
 // Rewriting this function to search for title, then artist, then tags, always with images
+// Thanks Eric for the original idea of a helper function to run the search
 async function getObjectID(searchName) {
 
     // Order is hasImages, title, artistOrCulture, tags
 
-    // Fetch all objects matching title
+    // All objects matching title
     const data = await searchArtworks(true, true, false, false);
     if (data) return data;
 
-    // Fetch all objects matching artist
+    // All objects matching artist
     const data2 = await searchArtworks(true, false, true, false);
     if (data2) return data2;
 
-    // Fetch all objects matching tags
+    // All objects matching tags
     const data3 = await searchArtworks(true, false, false, true);
     if (data3) return data3;
 
@@ -58,6 +59,7 @@ async function getObjectID(searchName) {
 
 // Dropping isHighlight for now, produces limited results
 // Also dropping isOnView because I can't get that data for the individual object
+// Again, thanks Eric!
 async function searchArtworks(hasImages, title, artistOrCulture, tags) {
     const url = new URL('https://collectionapi.metmuseum.org/public/collection/v1/search?');
 
@@ -108,6 +110,7 @@ async function searchArtworks(hasImages, title, artistOrCulture, tags) {
 }
 
 // Function to get metadata from object ID
+// Thanks Jonny and GPT for appendChild
 async function getObjectInfo(objectID) {
     const url = new URL('https://collectionapi.metmuseum.org/public/collection/v1/objects/' + objectID);
     return fetch(url)
