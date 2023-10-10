@@ -124,6 +124,7 @@ button:hover {
     text-decoration: none;
 }
 
+
 /* Canvas Absolute Position (already declared in JS but not working) */
 /* .p5Canvas {
     position: fixed;

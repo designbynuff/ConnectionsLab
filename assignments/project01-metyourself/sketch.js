@@ -1,3 +1,6 @@
+// Eventually want to implement cooler animated/organic waves, kinda like this but dark:
+// https://editor.p5js.org/StevesMakerspace/sketches/HI1Algi8w
+
 let canvas;
 
 function setup() {
