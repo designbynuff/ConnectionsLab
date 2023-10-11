@@ -118,6 +118,12 @@ async function getObjectInfo(objectID) {
         .then((data) => {
             console.log(data);
 
+            // It looks like for certain objects I get the following:
+            // {
+            //     "message": "Not a valid object"
+            //     }
+            // I should be able to consider this a "no matches" situation and run displayNoMatchMessage, which should hopefully get rid of undefined
+
             // Create a new Div for the metadata
             let artworkInfo = document.createElement('div');
             artworkInfo.setAttribute('class', 'artwork-info');
