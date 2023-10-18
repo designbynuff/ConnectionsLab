@@ -16,6 +16,7 @@ let app = express();
 
 //Serve a public folder
 app.use(express.static('public'));
+app.use(express.json());
 
 //Listen
 let port = 3000;
@@ -25,7 +26,7 @@ app.listen(port, () => {
 
 /*ROUTES */
 //STEP 3-4. GET all the messages as an object
-app. get('/messages', (request, response) => {
+app.get('/messages', (request, response) => {
   let messagesData = {
     data: messages
   }
@@ -34,3 +35,15 @@ app. get('/messages', (request, response) => {
 });
 
 //STEP 9. POST for a new message
+app.post('/new-message', (request, response) => {
+  console.log(request.body);
+  //STEP 11. add message to the array
+  let msgData = request.body;
+  msgData.time = Date();
+  //push array
+  messages.push(msgData);
+  console.log(messages);
+
+  //STEP 12. Send message back to the client
+  response.json(msgData);
+});

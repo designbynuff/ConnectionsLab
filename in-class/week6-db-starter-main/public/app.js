@@ -23,4 +23,44 @@ window.addEventListener('load', () => {
         feed.appendChild(newMessage);
       }
     })
+
+  //STEP 7. Get new message input value
+  let msg = document.getElementById('msg-input');
+  let msgButton = document.getElementById('msg-submit');
+
+
+  msgButton.addEventListener('click', () => {
+    let msgValue = msg.value;
+    console.log(msgValue);
+
+    let msgObj = {
+      message: msgValue
+    }
+
+    //STEP 8.2 Stringify the data
+    let messageObjJSON = JSON.stringify(msgObj);
+
+    //STEP 8. Create a fetch POST request
+    fetch('/new-message', {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: messageObjJSON
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+
+        //STEP 13. Update the feed with a new message
+        let message = data.message;
+        let time = data.time;
+
+        //Create new elements
+        let newMessage = document.createElement('p');
+        let newMessageContent = time + ": " + message;
+        newMessage.innerHTML = newMessageContent;
+
+        //append to the feed
+        feed.insertBefore(newMessage, feed.firstChild);
+      })
+  })
 });
