@@ -2,6 +2,8 @@
 // https://editor.p5js.org/StevesMakerspace/sketches/HI1Algi8w
 
 let canvas;
+let h;
+let bg;
 
 function setup() {
   // Make a fullscreen bg canvas
@@ -10,6 +12,12 @@ function setup() {
   canvas.style("z-index", "-1");
 
   background(27, 28, 33);
+
+  // HSB, random hue for stroke
+  colorMode(HSB, 100);
+  h = random(100);
+  bg = random(100);
+  console.log(h);
 }
 
 function draw() {
@@ -21,7 +29,10 @@ function draw() {
       let angle = noise(xoff, yoff, frameCount * 0.005) * TWO_PI * 4;
       let v = p5.Vector.fromAngle(angle);
       v.setMag(1);
-      stroke(191, 208, 252, 2);
+
+      // set stroke colour to hsb and randomise the hue
+      stroke(h, 90, 50, 2);
+
       push();
       translate(x, y);
       rotate(v.heading());
@@ -32,7 +43,10 @@ function draw() {
     xoff += 0.1;
   }
 
-
+  // redraw the background every 30s
+  if (frameCount % 1800 == 0) {
+    background(bg, 20, 15);
+  }
 }
 
 function windowResized() {
